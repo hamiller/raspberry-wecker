@@ -1,6 +1,9 @@
 Wecker aus einem Raspberry Pi
 =============================
 
+Für die Rotations-Abfrage wurde die externe Klasse von Bob Rathbone (http://www.bobrathbone.com) verwendet
+
+
 __WORK IN PROGRESS__
 
 ## Zielsystem

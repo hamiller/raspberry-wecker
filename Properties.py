@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+# Raspberry Pi Properties Class
+# $Id: Properties.py, 2014/09/19
+#
+# Author : Florian Miess
+#
+# This class reads and writes data into a file
+# 
+#
 import collections
 
 class Properties(object):

@@ -1,2 +1,3 @@
-Lautstaerke 62
-Weckzeit 602
+Alarm True
+Lautstaerke 91
+Weckzeit 23:21
