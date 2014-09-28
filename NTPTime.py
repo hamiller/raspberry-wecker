@@ -8,8 +8,9 @@
 #
 
 import time
+import datetime
 
 class NTPTime(object):
 
 	def getTime(self):
-		return time.strftime('%H:%M')
+		return datetime.datetime.now()

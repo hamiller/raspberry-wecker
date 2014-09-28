@@ -23,7 +23,7 @@ class RotaryEncoder:
 	rotary_b = 0
 	rotary_c = 0
 	last_state = 0
-	second_last_state = 0
+	privDirection = 0
 	direction = 0
 
 	# Initialise rotary encoder object
@@ -70,24 +70,26 @@ class RotaryEncoder:
 		new_state = self.rotary_a * 4 + self.rotary_b * 2 + self.rotary_c * 1
 		
 		delta1 = (new_state - self.last_state) % 4
-		delta2 = (self.last_state - self.second_last_state) % 4
-		#print "second_last_state:", self.second_last_state, "last_state:", self.last_state, "new_state: ", new_state, "   deltas: ", delta1, " - ",delta2, "    rotary:", self.rotary_c, " A:",self.rotary_a, " B:", self.rotary_b
-		self.second_last_state = self.last_state
 		self.last_state = new_state
 		event = 0
 
+#		print delta1 , " - priv: " , self.privDirection
 		if delta1 == 1:
 			if self.direction == self.CLOCKWISE:
 				# print "Clockwise"
+#				if self.privDirection == self.CLOCKWISE:
 				event = self.direction
 			else:
 				self.direction = self.CLOCKWISE
 		elif delta1 == 3:
 			if self.direction == self.ANTICLOCKWISE:
 				# print "Anticlockwise"
+#				if self.privDirection == self.ANTICLOCKWISE:
 				event = self.direction
 			else:
 				self.direction = self.ANTICLOCKWISE
+
+		self.privDirection = delta1
 		if event > 0:
 			self.callback(event)
 		return
